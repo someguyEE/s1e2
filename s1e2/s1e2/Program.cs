@@ -55,7 +55,7 @@ namespace s1e2
 
             // archive extraction, keep trying again in case something goes wrong (too many validation and input errors to consider)
             Console.WriteLine(@"specify directory to extract files (e.g. C:\temp\s1e2\extracted\)");
-            var extractPath = Console.ReadLine();
+            var extractPath = Console.ReadLine().Replace("\"", "");
 
             while (true)
             {
@@ -69,7 +69,7 @@ namespace s1e2
                 catch
                 {
                     Console.WriteLine(@"extraction failed, specify new directory to extract (e.g. C:\temp\s1e2\extracted\)");
-                    extractPath = Console.ReadLine();
+                    extractPath = Console.ReadLine().Replace("\"", "");
                 }
             }
             Console.WriteLine("press ENTER to exit the app");
