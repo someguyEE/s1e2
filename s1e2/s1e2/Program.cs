@@ -13,7 +13,7 @@ namespace s1e2
         static void Main(string[] args)
         {
             Console.WriteLine(@"enter zip archive file path (e.g. C:\temp\s1e2\loremipsum.zip)");
-            var zipPath = Console.ReadLine();
+            var zipPath = Console.ReadLine().Replace("\"", "");
 
             // validating (trying to open) and asking to try again in case of input issues
             while (true)
@@ -26,7 +26,7 @@ namespace s1e2
                 catch
                 {
                     Console.WriteLine(@"provided archive can`t be opened, please try again (e.g. C:\temp\s1e2\loremipsum.zip)");
-                    zipPath = Console.ReadLine();
+                    zipPath = Console.ReadLine().Replace("\"", "");
                 }
             }
 
